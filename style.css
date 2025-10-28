@@ -246,4 +246,62 @@ body {
         flex-direction: column;
         align-items: center;
     }
+
+}
+/* ==== MODAL STYLING ==== */
+.modal {
+  display: none; /* sembunyikan modal */
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content img {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+.modal-content h2 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Tombol X (close) */
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 28px;
+  color: #555;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
