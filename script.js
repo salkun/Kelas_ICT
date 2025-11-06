@@ -60,3 +60,20 @@ window.addEventListener("click", (event) => {
     modal.style.display = "none";
   }
 });
+// Validasi form kontak
+const contactForm = document.querySelector(".contact-form");
+contactForm.addEventListener("submit", (event) => {
+  event.preventDefault() // cegah reload halaman
+  //ambil nilai dari input
+  const nama = contactForm.querySelector('input[type="text"]').value.trim();
+  const email = contactForm.querySelector('input[type="email"]').value.trim();
+  const pesan = contactForm.querySelector('textarea').value.trim();
+  //validasi sederhana
+  if (nama === "" || email ==="" || pesan === "") {
+    alert("Harap isi semua kolom sebelum mengirim pesan");
+    return;
+  }
+  //jika semua terisi
+  alert("Pesan berhasil terkirim! terima kasih sudah menghubungi saya ");
+  contactForm.reset();//kosongkan form setelah submit
+});
