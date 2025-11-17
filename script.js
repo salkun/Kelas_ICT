@@ -1,6 +1,6 @@
 // Data dummy
 const layananData = [
-  {
+  { 
     id: 1,
     nama: "Desain Web",
     deskripsi: "Saya membuat tampilan website yang menarik, sederhana, dan responsif dengan menggunakan HTML dan CSS.",
@@ -9,7 +9,7 @@ const layananData = [
   {
     id: 2,
     nama: "Pemrograman",
-    deskripsi: "Saya menulis kode sederhana dengan HTML, CSS, dan JavaScript untuk membuat halaman web interaktif dan dinamis.",
+    deskripsi: "Saya menulis kode sederhana dengan HTML, \nCSS, dan JavaScript untuk membuat halaman web interaktif dan dinamis.",
     gambar: "https://cdn-icons-png.flaticon.com/512/906/906343.png"
   },
   {
@@ -60,6 +60,7 @@ window.addEventListener("click", (event) => {
     modal.style.display = "none";
   }
 });
+
 // Validasi form kontak
 const contactForm = document.querySelector(".contact-form");
 contactForm.addEventListener("submit", (event) => {
@@ -76,4 +77,25 @@ contactForm.addEventListener("submit", (event) => {
   //jika semua terisi
   alert("Pesan berhasil terkirim! terima kasih sudah menghubungi saya ");
   contactForm.reset();//kosongkan form setelah submit
+});
+
+//dark mode
+const darkToggle = document.getElementById("darkModeToggle");
+const body = document.body;
+//cek apakah sebelumnya sudah pernah aktif dark mode
+if (localStorage.getItem("theme") === "dark") {
+	body.classList.add("dark-mode");
+	darkToggle.textContent = "☀️";
+}
+//saat tombol diklik
+darkToggle.addEventListener("click", () => {
+	body.classList.toggle("dark-mode");
+	//ganti icon atau text dan simpan preference
+	if (body.classList.contains("dark-mode")) {
+		darkToggle.textContent = "☀️";
+		localStorage.setItem("theme", "dark");
+	}else{
+		darkToggle.textContent = "🌙";
+		localStorage.setItem("theme", "light");
+	};
 });
